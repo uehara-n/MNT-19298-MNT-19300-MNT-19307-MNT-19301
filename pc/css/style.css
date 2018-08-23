@@ -2163,10 +2163,10 @@ input[type="button"]:hover {
  margin-bottom: 5px;
  width: calc(25% - 5px);
 }
-
+/*  */
 .album-object-fit {
  width: 100%;
- height: 126px;
+ height: 250px;
  object-fit: cover;
  font-family: 'object-fit: cover;';
 }
@@ -3621,7 +3621,7 @@ input[type="button"]:hover {
  position: relative;
  margin-left: 20px;
  margin-bottom: 20px;
- width: calc(25% - 20px);
+ width: calc(33.3% - 20px);
  height: auto;
  overflow: hidden;
 }
@@ -3636,7 +3636,12 @@ input[type="button"]:hover {
  width: 100%;
  color: #fff;
  font-family: "yumin-demibold", "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
- line-height: 20px;
+ line-height: 25px;
+font-size: 15px;
+}
+
+.gallery-wrap .gallery-item a{
+  opacity: 1;
 }
 
 .gallery-item .mask {
@@ -3645,7 +3650,7 @@ input[type="button"]:hover {
  left: 0;
  width: 100%;
  height: 100%;
- background: rgba(0, 0, 0, 0.4);
+ background: rgba(0, 0, 0, 0.5);
  opacity: 0;
  -webkit-transition: all 0.2s ease;
  transition: all 0.2s ease;
@@ -3673,6 +3678,11 @@ input[type="button"]:hover {
   margin-bottom: 10px;
   width: calc(33.33333% - 10px);
  }
+}
+
+.gallery-post + .width .slick-slide img{
+  height: 139px;
+  object-fit: cover;
 }
 
 /* ------------------------------------------------------
