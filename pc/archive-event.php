@@ -21,10 +21,11 @@ get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
     <div class="event-post">
 
-      <?php if (date_i18n('Y.m.d') > post_custom('event_date_end')) {
-        echo '<img src="https://www.enlarge.tokyo/wp/wp-content/themes/reform2/img/common/page/e_ended.png" alt="終了しました" width="130" height="130" class="e_ended" />'; 
+      <?php if (date("Y/m/d") > get_field('event_date_end')) {
+        echo '<img src="https://www.enlarge.tokyo/wp/wp-content/themes/reform2/img/common/page/e_ended.png"
+        alt="終了しました" width="130" height="130" class="e_ended" />';
       } ?>
-
+    <!-- <?php //endif; ?> -->
       <div class="image">
 
         <?php
