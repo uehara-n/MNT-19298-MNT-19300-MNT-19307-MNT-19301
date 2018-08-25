@@ -47,6 +47,7 @@ function enlarge_enqueue() {
 	wp_enqueue_style('wideslider', get_template_directory_uri(). '/css/lib/wideslider.css', array(), null, 'all' );
 	wp_enqueue_style('enlarge-editor', get_template_directory_uri(). '/css/editor.css', array(), null, 'all' );
 	wp_enqueue_script('lightbox', get_template_directory_uri(). '/js/lightbox.js', array('jquery'), '2.10.0', true );
+
 }
 add_action( 'wp_enqueue_scripts', 'enlarge_enqueue' );
 
@@ -269,5 +270,35 @@ $output = preg_match_all('/<img.+src=[\'"](.+?jpeg|.+?bmp|.+?jpg|.+?png)[\'"].*>
 $first_img = $matches [1] [0];
 return $first_img;
 }
+
+function my_js_function() {
+echo <<< EOM
+<script>
+
+$(function() {
+	$('.slider1').slick({
+		settings: {
+			adaptiveHeight:true,
+			slidesToShow: 12,
+			slidesToScroll: 1
+			}
+	});
+});
+
+</script>
+EOM;
+}
+add_action( 'wp_footer', 'my_js_function',100 );
+
+
+function change_posts_per_page($query) {
+    if ( is_admin() || ! $query->is_main_query() )
+        return;
+
+    if ( $query->is_archive('album') ) {
+        $query->set( 'posts_per_page', '30' );
+    }
+}
+add_action( 'pre_get_posts', 'change_posts_per_page' );
 
 ?>

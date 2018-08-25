@@ -968,6 +968,8 @@ a.hover {
  padding: 10px;
  width: 100%;
  height: auto;
+ height: 138px;
+ object-fit: cover;
 }
 
 .carousel1 {
@@ -988,20 +990,19 @@ a.hover {
  content: url(../img/top/carousel/next.png);
 }
 
-.arrow1 .slick-prev {
- top: 50%;
+.arrow1 .slick-prev,
+.arrow1 .slick-next {
+ top: 66%;
  bottom: 50%;
- left: -10px;
  width: 26px;
  height: 42px;
 }
+.arrow1 .slick-prev {
+ left: -10px;
+}
 
 .arrow1 .slick-next {
- top: 50%;
- bottom: 50%;
  right: -10px;
- width: 26px;
- height: 42px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1733,6 +1734,14 @@ input[type="button"]:hover {
  font-family: 'FontAwesome';
  font-size: 18px;
  content: "\f105";
+}
+
+.news dd h3{
+  max-height: 44px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .news a {
@@ -3019,7 +3028,8 @@ input[type="button"]:hover {
    下層ページ -> イベント情報個別ページ
 ------------------------------------------------------ */
 .event-single-title,
-.seko-single-title {
+.seko-single-title,
+.album-single-title {
  margin-top: 50px;
  margin-bottom: 20px;
  padding-bottom: 10px;

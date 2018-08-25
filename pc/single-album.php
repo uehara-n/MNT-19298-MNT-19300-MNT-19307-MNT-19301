@@ -47,7 +47,7 @@ get_header(); ?>
   }
   $args = array(
   'post_type' => $post_type_slug, // 投稿タイプを指定
-  'posts_per_page' => 5, // 表示件数を指定
+  'posts_per_page' => 12, // 表示件数を指定
   'post__not_in' => array($post->ID), // 現在の投稿を除外
   'tax_query' => array( // タクソノミーパラメーターを使用
   array(
@@ -59,24 +59,27 @@ get_header(); ?>
   );
   $the_query = new WP_Query($args); if($the_query->have_posts()):
   ?>
+
+  <h4 class="album-single-title">その他ギャラリー</h4>
   <div class="width">
-<div class="slider1 carousel1">
-  <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
-    <!-- スライダー -->
-    <div class="slide-item">
-      <a href="<?php the_permalink() ?>">
-        <?php $image = get_field('main-image'); if( !empty($image) ): ?>
-          <img src="<?php $image = get_field('main-image'); echo $image['sizes']['medium']; ?>" class="fit" alt="<?php the_title(); ?>">
-        <?php endif; ?>
-      </a>
-    </div>
-  <?php endwhile; ?>
-</div>
-<div class="arrow1">
-  <div class="slick-next"></div>
-  <div class="slick-prev"></div>
-</div>
-</div>
+
+  <div class="slider1 carousel1">
+    <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+      <!-- スライダー -->
+      <div class="slide-item">
+        <a href="<?php the_permalink() ?>">
+          <?php $image = get_field('main-image'); if( !empty($image) ): ?>
+            <img src="<?php $image = get_field('main-image'); echo $image['sizes']['medium']; ?>" class="fit" alt="<?php the_title(); ?>">
+          <?php endif; ?>
+        </a>
+      </div>
+    <?php endwhile; ?>
+  </div>
+  <div class="arrow1 arrow">
+    <!-- <div class="slick-next"></div>
+    <div class="slick-prev"></div> -->
+  </div>
+  </div>
   <?php wp_reset_postdata(); ?>
   <?php endif; ?>
 
